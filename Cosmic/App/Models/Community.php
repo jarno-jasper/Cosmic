@@ -172,7 +172,7 @@ class Community
 
     public static function getPopularGroups($limit = 10, $offset = null)
     {
-        return QueryBuilder::query("SELECT guilds.name, guilds.badge, guilds.description, guilds_members.id, COUNT(guild_id) AS Total FROM guilds_members JOIN guilds ON guilds_members.guild_id = guilds.id GROUP BY guilds_members.guild_id ORDER BY Total DESC LIMIT " . $limit)->get();
+        return QueryBuilder::query("SELECT guilds.name, guilds.badge, guilds.description, guilds_members.id, COUNT(guild_id) AS Total FROM guilds_members JOIN guilds ON guilds_members.guild_id = guilds.id AND guilds_members.level_id < 3 GROUP BY guilds_members.guild_id ORDER BY Total DESC LIMIT " . $limit)->get();
     }
   
     public static function getRandomUsers($limit)

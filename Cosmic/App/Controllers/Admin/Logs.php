@@ -114,6 +114,18 @@ class Logs
 
         Json::filter($staff_logs, 'desc', 'id');
     }
+  
+    public function getcommandlogs()
+    {
+        $commands = Admin::getCommandLogs(1000);
+
+        foreach ($commands as $row) {
+            $row->username = Player::getDataById($row->user_id, 'username')->username ?? null;
+            $row->timestamp = date("d-M-Y H:i:s", $row->timestamp);
+        }
+
+        Json::filter($commands, 'desc', 'id');
+    }
 
     public function banlogs()
     {

@@ -19,7 +19,8 @@ $GLOBALS['language'] = array (
             'nav_buy_club'          =>  Config::site['shortname'] . ' Club kopen',
             'nav_purchasehistory'   => 'Aankoopgeschiedenis',
             'nav_changename'        =>  Config::site['shortname'] . 'naam veranderen',
-
+            'nav_drawyourbadge'     => 'Maak je badge',
+          
             'nav_highscores'        => 'Highscores',
 
             'nav_forum'             => 'Groepen',
@@ -514,7 +515,9 @@ $GLOBALS['language'] = array (
             'content_2'           => 'Aarzel niet om contact op te nemen met de klantenservice via de',
             'help_tool'           =>  Config::site['shortname'] . ' Help Tool',
             'title'               => 'Mijn aankoopgeschiedenis',
-            'desc'                => 'Vind hier alle aankopen die je hebt gedaan in'
+            'desc'                => 'Vind hier alle aankopen die je hebt gedaan in',
+            'title_draw'          => 'Maak je badge',
+            'draw_desc'     => 'Creeër je badge en koop hem voor punten!'
         ),
         'shop_offers' => array (
             'back'              => 'Terug',

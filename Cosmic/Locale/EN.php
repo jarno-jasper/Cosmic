@@ -19,7 +19,8 @@ $GLOBALS['language'] = array (
             'nav_buy_club'          => 'Purchase ' . Config::site['shortname'] . ' Club',
             'nav_purchasehistory'   => 'Purchase history',
             'nav_changename'        => 'Change ' . Config::site['shortname'] . 'name',
-
+            'nav_drawyourbadge'     => 'Draw your badge',
+          
             'nav_highscores'        => 'Highscores',
 
             'nav_forum'             => 'My Groups',
@@ -158,7 +159,8 @@ $GLOBALS['language'] = array (
             'web_page_hotel_soon'                           => 'Grab a drink, we\'ll be there soon...',
             'web_hotel_active_flash_1'                      => 'Youre almost in ' . Config::site['shortname'] .'!',
             'web_hotel_active_flash_2'                      => 'Click here',
-            'web_hotel_active_flash_3'                      => 'and click on the left side at "allow" flash, to enable flash.'
+            'web_hotel_active_flash_3'                      => 'and click on the left side at "allow" flash, to enable flash.',
+            
         ),
 
         /*     App/View/Community     */
@@ -518,7 +520,9 @@ $GLOBALS['language'] = array (
             'content_2'           => 'Do not hesitate to contact customer service via the',
             'help_tool'           =>  Config::site['shortname'] . ' Help Tool',
             'title'               => 'My Purchase history',
-            'desc'                => 'You see here all the purchases you have made'
+            'desc'                => 'You see here all the purchases you have made',
+            'title_draw'          => 'Draw your badge',
+            'draw_desc'           => 'Draw your own badge for points'
         ),
         'shop_offers' => array (
             'back'              => 'Back',
@@ -576,7 +580,8 @@ $GLOBALS['language'] = array (
             'not_enough_belcredits' => 'You do not have enough gotwpoints.',
             'not_enough_points'     => 'You do not have enough points.',
             'topic_closed'          => 'You cannot respond to a topic that has been closed!',
-            'post_not_allowed'      => 'You don\'t have access to create a post in this forum!'
+            'post_not_allowed'      => 'You don\'t have access to create a post in this forum!',
+            'draw_badge_uploaded'   => 'Your badge has been submitted and is ready for review!'
         ),
         'pattern' => array (
             'can_be'                => 'may maximum',

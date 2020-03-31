@@ -12,9 +12,10 @@ $(function ()
 function SiteLoadingInterface()
 {
     this.files = [
+        "web.badge",
         "web.locale",
-        "web.pages.min",
-        "web.core.min",
+        "web.pages",
+        "web.core"
     ];
     this.loaded_files = 0;
     this.total_files = 0;

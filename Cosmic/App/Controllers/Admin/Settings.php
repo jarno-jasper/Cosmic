@@ -67,6 +67,7 @@ class Settings
       
         $settings->vip_currency_type = Core::getCurrencyByType($settings->vip_currency_type);
         $settings->namechange_currency_type = Core::getCurrencyByType($settings->namechange_currency_type);
+        $settings->draw_badge_currency = Core::getCurrencyByType($settings->draw_badge_currency);
       
         $settings->ranks = Permission::getRanks();
         $settings->user_of_the_week = Player::getDataById($settings->user_of_the_week ?? 0, ['id', 'username']) ?? false;

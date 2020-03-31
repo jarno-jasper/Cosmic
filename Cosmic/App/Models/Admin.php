@@ -145,6 +145,11 @@ class Admin
     {
         return QueryBuilder::table('website_staff_logs')->OrderBy('id', 'desc')->limit($limit)->get();
     }
+  
+    public static function getCommandLogs($limit = 100)
+    {
+        return QueryBuilder::table('commandlogs')->OrderBy('timestamp', 'desc')->limit($limit)->get();
+    }
 
     public static function getClones($last_ip, $reg_ip, $limit = 1000)
     {
@@ -413,11 +418,11 @@ class Admin
         return QueryBuilder::table('website_helptool_categories')->where('id', $id)->first();
     }
 
-    public static function addFAQ($title, $story, $category, $author)
+    public static function addFAQ($title, $slug, $story, $category, $author)
     {
         $data = array(
             'title' => $title,
-            'slug' => $title,
+            'slug' => $slug,
             'desc' => $story,
             'category' => $category,
             'timestamp' => time(),
@@ -427,11 +432,11 @@ class Admin
         return QueryBuilder::table('website_helptool_faq')->insert($data);
     }
 
-    public static function editFAQ($id, $title, $story, $category, $author)
+    public static function editFAQ($id, $title, $slug, $story, $category, $author)
     {
         $data = array(
             'title' => $title,
-            'slug' => $title,
+            'slug' => $slug,
             'desc' => $story,
             'category' => $category,
             'timestamp' => time(),
@@ -801,5 +806,31 @@ class Admin
     public static function saveSettings($column, $value_id)
     {
         return QueryBuilder::table('website_settings')->where('key', $column)->update(array('value' => $value_id));
+    }
+  
+    public static function getBadgeById($id) 
+    {
+        return QueryBuilder::table('website_badge_requests')->find($id);
+    }
+  
+    public static function getBadgeRequests() 
+    {
+        return QueryBuilder::table('website_badge_requests')->where('status', "open")->get();
+    }
+  
+    public static function insertBadge($user_id, $badge)
+    {
+        $data = array(
+            'user_id' => $user_id,
+            'slot' => 0,
+            'badge_code' => $badge
+        );
+
+        return QueryBuilder::table('users_badges')->insert($data);
+    }
+  
+    public static function updateBadgeRequest($id, $status)
+    {
+        return QueryBuilder::table('website_badge_requests')->where('id', $id)->update(array('status' => $status));
     }
 }

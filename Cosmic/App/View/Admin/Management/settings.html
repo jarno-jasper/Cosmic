@@ -191,6 +191,33 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                      
+                                                       <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg"></div>
+
+                                                        <h3 class="kt-section__title">2. Draw your badge</h3>
+                                                        <div class="kt-section__body">
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Badge imaging location</label>
+                                                                <div class="col-lg-6">
+                                                                    <input type="text" name="draw_badge_imaging" value="{{settings.draw_badge_imaging}}" class="form-control">
+                                                                    <span class="form-text text-muted">Path to your album1584</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Draw badge pay currency:</label>
+                                                                <div class="col-lg-3">
+                                                                    <select name="draw_badge_currency" class="form-control targetCurrency">
+                                                                        <option value="{{settings.draw_badge_currency.type}}">{{settings.draw_badge_currency.currency}}</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                                <label class="col-lg-3 col-form-label">Draw badge pay price:</label>
+                                                                <div class="col-lg-2">
+                                                                    <input type="text" class="form-control" name="draw_badge_price" value="{{settings.draw_badge_price}}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="kt-portlet__foot">

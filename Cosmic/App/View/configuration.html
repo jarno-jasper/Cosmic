@@ -22,7 +22,6 @@ var User = {
     username: "{{player.username}}",
     is_logged: true,
     ticket: "{{player.auth_ticket}}",
-    shuttle_token: "{{player.shuttle_token}}",
     is_staff: {% if player.rank >= 3 %}true{% else %}false{% endif %}
 
 };
@@ -31,6 +30,6 @@ var User = {
 var Configuration = {
     {% if publickey is not empty %}recaptcha_public: "{{publickey}}",{% endif %}
     revision: "{{revision}}2213",
-    cache: "AEEA19MN001",
+    cache: "AEEA19MN001B",
     debug: {{debug}}
 };

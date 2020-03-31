@@ -462,7 +462,10 @@ function WebPageInterface(manager, type, scroll, page_data) {
             this.page_interface = new WebPagePasswordClaimInterface(this);
         else if (this.type === "forum")
             this.page_interface = new WebPageForumInterface(this);
-
+        else if (this.type === "shop_history")
+            this.page_interface = new WebPageBadgeInterface(this);
+      
+      
         if (this.page_interface !== null)
             this.page_interface.init();
     };

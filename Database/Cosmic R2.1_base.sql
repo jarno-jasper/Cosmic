@@ -315,19 +315,6 @@ CREATE TABLE `website_news_reactions`  (
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
--- ----------------------------
--- Table structure for website_notifications
--- ----------------------------
-DROP TABLE IF EXISTS `website_notifications`;
-CREATE TABLE `website_notifications`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `player_id` int(11) NOT NULL DEFAULT 0,
-  `message` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `type` enum('0','1') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `is_read` enum('0','1') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `timestamp` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for website_password_reset
@@ -387,6 +374,8 @@ INSERT INTO `website_permissions` VALUES (25, 'housekeeping_staff_logs_menu', 'P
 INSERT INTO `website_permissions` VALUES (26, 'housekeeping_config', 'Player can manage all the config settings');
 INSERT INTO `website_permissions` VALUES (27, 'website_invisible_staff', 'Hide rank from staff page at website');
 INSERT INTO `website_permissions` VALUES (28, 'website_extra_rank', '');
+INSERT INTO `website_permissions` VALUES (29, 'housekeeping_website_badgerequest', 'Player is able to accept new badge requests');
+
 
 -- ----------------------------
 -- Table structure for website_permissions_ranks
@@ -432,6 +421,8 @@ INSERT INTO `website_permissions_ranks` VALUES (25, 25, 7);
 INSERT INTO `website_permissions_ranks` VALUES (26, 26, 7);
 INSERT INTO `website_permissions_ranks` VALUES (27, 27, 1);
 INSERT INTO `website_permissions_ranks` VALUES (28, 27, 2);
+INSERT INTO `website_permissions_ranks` VALUES (29, 29, 7);
+
 
 -- ----------------------------
 -- Table structure for website_photos_likes
@@ -492,7 +483,10 @@ INSERT INTO `website_settings` VALUES ('referral_acc_create_days', '14');
 INSERT INTO `website_settings` VALUES ('referral_points_type', '103');
 INSERT INTO `website_settings` VALUES ('referral_points', '5');
 INSERT INTO `website_settings` VALUES ('referral_waiting_seconds', '3600');
-INSERT INTO `website_settings` VALUES ('user_of_the_week ', NULL);
+INSERT INTO `website_settings` VALUES ('user_of_the_week', NULL);
+INSERT INTO `website_settings` VALUES ('draw_badge_imaging', NULL);
+INSERT INTO `website_settings` VALUES ('draw_badge_currency', NULL);
+INSERT INTO `website_settings` VALUES ('draw_badge_price', NULL);
 
 -- ----------------------------
 -- Table structure for website_settings_currencys
@@ -579,6 +573,18 @@ CREATE TABLE `website_membership`  (
   `expires_at` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for website_badge_requests
+-- ----------------------------
+DROP TABLE IF EXISTS `website_badge_requests`;
+CREATE TABLE `website_badge_requests`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `badge_imaging` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `status` enum('open','accept','decline') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'open',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Alter table fixes for Cosmic to work

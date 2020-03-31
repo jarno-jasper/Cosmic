@@ -71,6 +71,7 @@ class View
 
             if (request()->player !== null) {
 
+                $twig->addGlobal('player_currency', Player::getCurrencys(request()->player->id));
                 $twig->addGlobal('player', request()->player);
   
                 $twig->addGlobal('player_permissions', Permission::get(request()->player->rank));
